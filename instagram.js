@@ -47,6 +47,7 @@ const {Op} = require('sequelize');
    
 // });
 
+        //desafio
 // Usuario.findAll({
 //     where:{
 //         nome: {[Op.like]: '%a%'}
@@ -65,15 +66,125 @@ const {Op} = require('sequelize');
 //     console.table(resultado.map(user => user.toJSON())); 
 // });
 
-for (let i= 0; i< 6; i+=2){
-Comentario.findAll({
-    order:[
-        ['id', 'ASC']  
-    ],
-    limit: 2, 
-    offset: i
+// for (let i= 0; i< 6; i+=2){
+// Comentario.findAll({
+//     order:[
+//         ['id', 'ASC']  
+//     ],
+//     limit: 2, 
+//     offset: i
+// })
+// .then ((resultado) => {
+//     console.table(resultado.map(user => user.toJSON())); 
+// });
+// }
+
+
+    /**CRIAR - Criando usuarios para todo mund do grupo */
+// Usuario.create({
+//     nome: 'Edson',
+//     email: 'ed@avanade.com',
+//     senha: 'edson123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Julia',
+//     email: 'jujuba@digitalhouse.com',
+//     senha: 'juli123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Mariana',
+//     email: 'mari@digitalhouse.com',
+//     senha: 'marianaconta10'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Bartolomeu',
+//     email: 'bart@digitalhouse.com',
+//     senha: 'bartinhodobrega123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'João',
+//     email: 'jao@digitalhouse.com',
+//     senha: 'jojoaozinho123'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Usuario.create({
+//     nome: 'Brena',
+//     email: 'brena@email.com',
+//     senha: 'b123na'
+// }).then((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+    /**ATUALIZAR */
+// Usuario.update({
+//     senha: 'novasenha123'
+// }, {
+//     where: {
+//         id: 8
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+        /**DELETAR */
+// Usuario.destroy({
+//     where: {
+//         id: 6
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+Usuario.findAll().then((usuarios) => {
+    console.table(usuarios.map((usuario) => usuario.toJSON()));
 })
-.then ((resultado) => {
-    console.table(resultado.map(user => user.toJSON())); 
-});
-}
+    /**Criando um posto no meu id */
+// Post.create({
+//     texto: 'Oieee, to com fome!',
+//     img: null,
+//     usuarios_id: 18,
+//     n_likes: 5
+// }).then ((resultado) => {
+//     console.log(resultado.toJSON());
+// });
+
+// Post.findAll({
+
+// })
+// .then ((resultado) => {
+//     console.table(resultado.map(user => user.toJSON())); 
+// });
+
+    /**Atualizando email de Sergio */
+// Usuario.update({
+//     email: 'sergio@digitalhouse.com'
+// }, {
+//     where: {
+//         id: 2
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
+
+    /**Deletando Felipe Veronesi */
+// Usuario.destroy({
+//     where: {
+//         id: 3
+//     }
+// }).then((resultado) => {
+//     console.log(resultado);
+// })
