@@ -89,52 +89,12 @@ const {Op} = require('sequelize');
 //     console.log(resultado.toJSON());
 // });
 
-// Usuario.create({
-//     nome: 'Julia',
-//     email: 'jujuba@digitalhouse.com',
-//     senha: 'juli123'
-// }).then((resultado) => {
-//     console.log(resultado.toJSON());
-// });
-
-// Usuario.create({
-//     nome: 'Mariana',
-//     email: 'mari@digitalhouse.com',
-//     senha: 'marianaconta10'
-// }).then((resultado) => {
-//     console.log(resultado.toJSON());
-// });
-
-// Usuario.create({
-//     nome: 'Bartolomeu',
-//     email: 'bart@digitalhouse.com',
-//     senha: 'bartinhodobrega123'
-// }).then((resultado) => {
-//     console.log(resultado.toJSON());
-// });
-
-// Usuario.create({
-//     nome: 'João',
-//     email: 'jao@digitalhouse.com',
-//     senha: 'jojoaozinho123'
-// }).then((resultado) => {
-//     console.log(resultado.toJSON());
-// });
-
-// Usuario.create({
-//     nome: 'Brena',
-//     email: 'brena@email.com',
-//     senha: 'b123na'
-// }).then((resultado) => {
-//     console.log(resultado.toJSON());
-// });
-
     /**ATUALIZAR */
 // Usuario.update({
-//     senha: 'novasenha123'
+//     email: 'bart@avanade.com'
 // }, {
 //     where: {
-//         id: 8
+//         id: 17
 //     }
 // }).then((resultado) => {
 //     console.log(resultado);
@@ -143,24 +103,22 @@ const {Op} = require('sequelize');
         /**DELETAR */
 // Usuario.destroy({
 //     where: {
-//         id: 6
+//         id: 13
 //     }
 // }).then((resultado) => {
 //     console.log(resultado);
 // })
 
-Usuario.findAll().then((usuarios) => {
-    console.table(usuarios.map((usuario) => usuario.toJSON()));
-})
+
+
     /**Criando um posto no meu id */
 // Post.create({
 //     texto: 'Oieee, to com fome!',
 //     img: null,
 //     usuarios_id: 18,
 //     n_likes: 5
-// }).then ((resultado) => {
-//     console.log(resultado.toJSON());
 // });
+
 
 // Post.findAll({
 
@@ -188,3 +146,34 @@ Usuario.findAll().then((usuarios) => {
 // }).then((resultado) => {
 //     console.log(resultado);
 // })
+
+    /**Mostrar Todos os usuários */
+// Usuario.findAll().then((usuarios) => {
+//     console.table(usuarios.map((usuario) => usuario.toJSON()));
+// })
+
+// Usuario.findByPk(1, {
+//     include: [
+//         {association: "posts"}
+//     ]
+// })
+// .then((usuario) => {
+//     console.table(usuario.posts.map((post) => post.toJSON()))
+//     sequelize.close();
+// })
+
+//outro jeito
+// Usuario.findByPk(1, {include: ['posts']}).then(
+//     usuario => {
+//         console.log(usuario.toJSON());
+//         sequelize.close();
+//     }
+// )
+
+Post.findByPk(1, {include: ['comentarios']})
+.then(
+    post => {
+        console.table(post.toJSON());
+        sequelize.close();
+    }
+)
