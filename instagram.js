@@ -47,32 +47,33 @@ const {Op} = require('sequelize');
    
 // });
 
-Usuario.findAll({
-    where:{
-        nome: {[Op.like]: '%a%'}
-    }
-})
-.then ((resultado) => {
-    console.table(resultado.map(user => user.toJSON())); 
-});
+// Usuario.findAll({
+//     where:{
+//         nome: {[Op.like]: '%a%'}
+//     }
+// })
+// .then ((resultado) => {
+//     console.table(resultado.map(user => user.toJSON())); 
+// });
 
-Usuario.findAll({
-    where:{
-        nome: {[Op.notLike]: '%a%'}
-    }
-})
-.then ((resultado) => {
-    console.table(resultado.map(user => user.toJSON())); 
-});
+// Usuario.findAll({
+//     where:{
+//         nome: {[Op.notLike]: '%a%'}
+//     }
+// })
+// .then ((resultado) => {
+//     console.table(resultado.map(user => user.toJSON())); 
+// });
 
+for (let i= 0; i< 6; i+=2){
 Comentario.findAll({
     order:[
         ['id', 'ASC']  
     ],
     limit: 2, 
-    offset: 2
+    offset: i
 })
 .then ((resultado) => {
     console.table(resultado.map(user => user.toJSON())); 
 });
-
+}
